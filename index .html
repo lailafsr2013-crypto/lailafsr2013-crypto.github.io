@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Le Point Tranquille — Le crochet comme thérapie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Karla:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F6F1E7;
+    --paper:#FDFBF6;
+    --charcoal:#332F28;
+    --moss:#6E7F5C;
+    --moss-deep:#4E5C40;
+    --clay:#C98A73;
+    --blush:#EFDCCB;
+    --sage-line: rgba(78,92,64,0.18);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--charcoal);
+    font-family:'Karla', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    margin:0;
+    color:var(--moss-deep);
+  }
+  p{margin:0;}
+  a{color:inherit;}
+  .wrap{
+    max-width:1160px;
+    margin:0 auto;
+    padding:0 40px;
+  }
+  @media(max-width:700px){ .wrap{padding:0 24px;} }
+
+  /* ---- Header ---- */
+  header.site{
+    padding:28px 0 24px;
+    border-bottom:1px solid var(--sage-line);
+  }
+  .header-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .logo-word{
+    font-family:'Fraunces', serif;
+    font-size:1.25rem;
+    letter-spacing:0.01em;
+    color:var(--moss-deep);
+  }
+  nav.site-nav{
+    display:flex;
+    gap:32px;
+    font-size:0.95rem;
+  }
+  nav.site-nav a{
+    text-decoration:none;
+    color:var(--charcoal);
+    position:relative;
+    padding-bottom:3px;
+  }
+  nav.site-nav a:hover{ color:var(--moss-deep); }
+  @media(max-width:700px){ nav.site-nav{ display:none; } }
+
+  /* ---- Hero ---- */
+  section.hero{
+    padding:76px 0 88px;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.05fr 0.95fr;
+    gap:64px;
+    align-items:center;
+  }
+  @media(max-width:860px){
+    .hero-grid{ grid-template-columns:1fr; gap:44px; }
+    section.hero{ padding:48px 0 56px; }
+  }
+  .hero-eyebrow{
+    font-size:0.92rem;
+    color:var(--moss);
+    margin-bottom:18px;
+  }
+  .hero h1{
+    font-size:clamp(2.1rem, 4.4vw, 3.4rem);
+    line-height:1.12;
+    letter-spacing:-0.01em;
+  }
+  .hero p.lead{
+    margin-top:22px;
+    max-width:46ch;
+    font-size:1.08rem;
+    color:#5A5548;
+  }
+  .btn{
+    display:inline-block;
+    margin-top:34px;
+    padding:14px 30px;
+    background:var(--moss-deep);
+    color:var(--paper);
+    text-decoration:none;
+    border-radius:2px;
+    font-size:0.95rem;
+    letter-spacing:0.01em;
+    transition:background 0.2s ease, transform 0.2s ease;
+  }
+  .btn:hover{ background:var(--clay); }
+  .btn.ghost{
+    background:transparent;
+    border:1px solid var(--moss-deep);
+    color:var(--moss-deep);
+  }
+  .btn.ghost:hover{ background:var(--moss-deep); color:var(--paper); }
+
+  .hero-art{
+    position:relative;
+    aspect-ratio:1/1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .hero-art svg{ width:100%; height:100%; }
+
+  /* ---- Intro / quote section ---- */
+  section.intro{
+    padding:70px 0;
+    border-top:1px solid var(--sage-line);
+  }
+  .intro-grid{
+    display:grid;
+    grid-template-columns:0.85fr 1.15fr;
+    gap:60px;
+  }
+  @media(max-width:860px){ .intro-grid{ grid-template-columns:1fr; gap:28px; } }
+  .intro-quote{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:1.6rem;
+    line-height:1.4;
+    color:var(--moss-deep);
+    border-left:2px solid var(--clay);
+    padding-left:24px;
+  }
+  .intro-body p{ max-width:60ch; color:#5A5548; }
+  .intro-body p + p{ margin-top:16px; }
+
+  /* ---- Pillars ---- */
+  section.pillars{
+    padding:70px 0 80px;
+    border-top:1px solid var(--sage-line);
+  }
+  .pillars-head{ max-width:60ch; margin-bottom:46px; }
+  .pillars-head h2{ font-size:1.9rem; }
+  .pillars-row{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:0;
+  }
+  @media(max-width:760px){ .pillars-row{ grid-template-columns:1fr; } }
+  .pillar{
+    padding:0 32px;
+    border-left:1px solid var(--sage-line);
+  }
+  .pillar:first-child{ border-left:none; padding-left:0; }
+  @media(max-width:760px){
+    .pillar{ border-left:none; padding:28px 0; border-top:1px solid var(--sage-line); }
+    .pillar:first-child{ border-top:none; padding-top:0; }
+  }
+  .pillar svg{ width:42px; height:42px; margin-bottom:20px; color:var(--clay); }
+  .pillar h3{ font-size:1.15rem; margin-bottom:10px; }
+  .pillar p{ color:#5A5548; font-size:0.96rem; }
+
+  /* ---- Articles ---- */
+  section.articles{
+    padding:70px 0 80px;
+    border-top:1px solid var(--sage-line);
+  }
+  .articles-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    margin-bottom:40px;
+    gap:20px;
+    flex-wrap:wrap;
+  }
+  .articles-head h2{ font-size:1.9rem; }
+  .articles-head a{
+    text-decoration:none;
+    color:var(--moss-deep);
+    font-size:0.92rem;
+    border-bottom:1px solid var(--clay);
+    padding-bottom:2px;
+    white-space:nowrap;
+  }
+  .articles-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:36px;
+  }
+  @media(max-width:860px){ .articles-grid{ grid-template-columns:1fr; } }
+  .article-card{
+    text-decoration:none;
+    color:inherit;
+    display:block;
+  }
+  .article-card .thumb{
+    aspect-ratio:4/3;
+    background:linear-gradient(155deg, var(--blush), var(--cream));
+    border-radius:2px;
+    margin-bottom:16px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .article-card .thumb svg{ width:44%; height:44%; color:var(--moss); }
+  .article-card .tag{
+    font-size:0.8rem;
+    color:var(--moss);
+    margin-bottom:6px;
+    display:block;
+  }
+  .article-card h3{
+    font-size:1.12rem;
+    line-height:1.3;
+    margin-bottom:8px;
+  }
+  .article-card p{
+    font-size:0.92rem;
+    color:#5A5548;
+  }
+  .article-card:hover h3{ color:var(--clay); }
+
+  /* ---- Contact ---- */
+  section.contact{
+    padding:70px 0 80px;
+    border-top:1px solid var(--sage-line);
+  }
+  .contact-grid{
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:56px;
+  }
+  @media(max-width:860px){ .contact-grid{ grid-template-columns:1fr; gap:28px; } }
+  .contact-grid h2{ font-size:1.7rem; margin-bottom:14px; }
+  .contact-grid p{ color:#5A5548; max-width:48ch; }
+  .contact-details{ font-size:0.96rem; }
+  .contact-details dt{ color:var(--moss); margin-top:18px; font-size:0.85rem; }
+  .contact-details dd{ margin:4px 0 0; font-family:'Fraunces', serif; font-size:1.05rem; color:var(--moss-deep); }
+
+  /* ---- About ---- */
+  section.about{
+    padding:70px 0 80px;
+    border-top:1px solid var(--sage-line);
+  }
+  .about-grid{
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:56px;
+    align-items:center;
+  }
+  @media(max-width:860px){ .about-grid{ grid-template-columns:1fr; gap:32px; } }
+  .about-portrait{
+    aspect-ratio:4/5;
+    background:linear-gradient(160deg, var(--blush), var(--cream));
+    border-radius:2px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+  }
+  .about-portrait svg{ width:70%; height:70%; }
+  .about-text h2{ font-size:1.7rem; margin-bottom:16px; }
+  .about-text p{ color:#5A5548; max-width:52ch; }
+  .about-text p + p{ margin-top:14px; }
+  .about-signoff{
+    margin-top:22px;
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    color:var(--moss-deep);
+  }
+
+  /* ---- CTA band ---- */
+  section.cta{
+    margin:0 40px 60px;
+    padding:64px 48px;
+    background:var(--moss-deep);
+    color:var(--paper);
+    border-radius:2px;
+    text-align:left;
+  }
+  @media(max-width:700px){ section.cta{ margin:0 24px 48px; padding:44px 28px; } }
+  .cta-grid{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:32px;
+    flex-wrap:wrap;
+    max-width:1080px;
+    margin:0 auto;
+  }
+  section.cta h2{ color:var(--paper); font-size:1.7rem; max-width:22ch; }
+  section.cta p{ color:#E4E2D6; margin-top:10px; max-width:42ch; }
+  section.cta .btn{ background:var(--clay); color:var(--charcoal); white-space:nowrap; }
+  section.cta .btn:hover{ background:var(--blush); }
+
+  /* ---- Footer ---- */
+  footer{
+    padding:32px 0 48px;
+    border-top:1px solid var(--sage-line);
+    font-size:0.86rem;
+    color:#6B6656;
+  }
+  .footer-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:12px;
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap header-row">
+    <div class="logo">
+      <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+        <circle cx="15" cy="17" r="8" stroke="#4E5C40" stroke-width="1.6"/>
+        <path d="M7 17 Q15 9 23 17" stroke="#4E5C40" stroke-width="1.2" fill="none"/>
+        <path d="M9 12 Q15 19 21 12" stroke="#4E5C40" stroke-width="1.2" fill="none"/>
+        <path d="M15 25c3-3 3-6 0-8" stroke="#C98A73" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+      </svg>
+      <span class="logo-word">Le Point Tranquille</span>
+    </div>
+    <nav class="site-nav">
+      <a href="index.html">Accueil</a>
+      <a href="#about">À propos</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="hero-eyebrow">Un espace de ralentissement</div>
+      <h1>Transformer le stress en création, une maille à la fois.</h1>
+      <p class="lead">Le Point Tranquille est un carnet de craft therapy : ici, le crochet devient un geste poétique pour apaiser le mental, déposer le trop-plein et reprendre soin de soi, maille après maille.</p>
+      <a href="#cta" class="btn">Découvrir le premier projet : Nino le Panda</a>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 340 340">
+        <circle cx="170" cy="170" r="150" fill="#EFDCCB" opacity="0.6"/>
+        <!-- yarn ball -->
+        <g transform="translate(70,150)">
+          <ellipse cx="45" cy="45" rx="46" ry="44" fill="#9CAA8C"/>
+          <path d="M4 40c20-30 66-30 82 4" stroke="#6E7F5C" stroke-width="2.5" fill="none"/>
+          <path d="M2 55c22-18 68-18 88 2" stroke="#6E7F5C" stroke-width="2.5" fill="none"/>
+          <path d="M8 24c18-14 60-12 76 8" stroke="#6E7F5C" stroke-width="2.5" fill="none"/>
+        </g>
+        <!-- crochet panda silhouette -->
+        <g transform="translate(150,60)">
+          <circle cx="60" cy="55" r="52" fill="#FDFBF6" stroke="#332F28" stroke-width="2"/>
+          <circle cx="24" cy="18" r="16" fill="#332F28"/>
+          <circle cx="96" cy="18" r="16" fill="#332F28"/>
+          <ellipse cx="40" cy="48" rx="12" ry="14" fill="#332F28"/>
+          <ellipse cx="80" cy="48" rx="12" ry="14" fill="#332F28"/>
+          <ellipse cx="40" cy="50" rx="4" ry="5" fill="#FDFBF6"/>
+          <ellipse cx="80" cy="50" rx="4" ry="5" fill="#FDFBF6"/>
+          <ellipse cx="60" cy="66" rx="9" ry="7" fill="#332F28"/>
+          <path d="M52 78q8 8 16 0" stroke="#332F28" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </g>
+        <path d="M60 260 Q170 300 280 250" stroke="#C98A73" stroke-width="2" fill="none" stroke-dasharray="1 8" stroke-linecap="round"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="intro">
+  <div class="wrap intro-grid">
+    <p class="intro-quote">« Créer, c'est donner une forme apaisante à nos émotions. »</p>
+    <div class="intro-body">
+      <p>Bienvenue dans votre bulle de craft therapy. Dans un monde qui va trop vite, nos mains ont le pouvoir de calmer notre esprit.</p>
+      <p>Le crochet n'est pas seulement un passe-temps créatif : c'est un canal pour déposer le surplus de charge mentale, transformer l'anxiété en douceur et se reconnecter à soi-même, maille après maille.</p>
+    </div>
+  </div>
+</section>
+
+<section class="pillars" id="pillars">
+  <div class="wrap">
+    <div class="pillars-head">
+      <h2>Ce que vous trouverez ici</h2>
+    </div>
+    <div class="pillars-row">
+      <div class="pillar">
+        <svg viewBox="0 0 42 42" fill="none"><circle cx="21" cy="21" r="17" stroke="currentColor" stroke-width="1.6"/><path d="M21 21c4-4 4-9 0-13" stroke="currentColor" stroke-width="1.6"/></svg>
+        <h3>Des projets réconfortants</h3>
+        <p>Des patrons d'amigurumis ultra-doux, comme Nino le Panda, pensés pour se sentir en sécurité pendant qu'on les crée.</p>
+      </div>
+      <div class="pillar">
+        <svg viewBox="0 0 42 42" fill="none"><path d="M10 26c4 6 18 6 22 0" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M13 16l6 6-6 6M29 16l-6 6 6 6" stroke="currentColor" stroke-width="1.6" fill="none"/></svg>
+        <h3>Un apprentissage zen</h3>
+        <p>Des tutoriels pas-à-pas, comme des rituels de relaxation : sans pression, à votre rythme, maille après maille.</p>
+      </div>
+      <div class="pillar">
+        <svg viewBox="0 0 42 42" fill="none"><path d="M21 6c-9 0-14 8-11 15 2 5 6 6 6 11h10c0-5 4-6 6-11 3-7-2-15-11-15z" stroke="currentColor" stroke-width="1.6" fill="none"/></svg>
+        <h3>Un espace de sublimation</h3>
+        <p>Des articles sur le bien-être, la psychologie du faire-main et ses bienfaits sur le système nerveux.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="articles" id="articles">
+  <div class="wrap">
+    <div class="articles-head">
+      <h2>Derniers articles</h2>
+      <a href="articles.html">Voir tous les articles</a>
+    </div>
+    <div class="articles-grid">
+      <a class="article-card" href="article-nino-le-panda.html">
+        <div class="thumb"><svg viewBox="0 0 42 42" fill="none"><circle cx="21" cy="21" r="16" stroke="currentColor" stroke-width="1.6"/><circle cx="21" cy="21" r="6" stroke="currentColor" stroke-width="1.6"/></svg></div>
+        <span class="tag">Tutoriel</span>
+        <h3>L'aventure Nino : tricoter votre premier panda réconfort</h3>
+        <p>Le patron pas-à-pas, pensé comme un rituel de relaxation plutôt qu'un défi technique.</p>
+      </a>
+      <a class="article-card" href="article-bienfaits-crochet.html">
+        <div class="thumb"><svg viewBox="0 0 42 42" fill="none"><path d="M21 6c-9 0-14 8-11 15 2 5 6 6 6 11h10c0-5 4-6 6-11 3-7-2-15-11-15z" stroke="currentColor" stroke-width="1.6" fill="none"/></svg></div>
+        <span class="tag">Bien-être</span>
+        <h3>Pourquoi le crochet apaise le système nerveux</h3>
+        <p>Ce que la répétition des mailles fait réellement à votre esprit, expliqué simplement.</p>
+      </a>
+      <a class="article-card" href="article-rituel-du-soir.html">
+        <div class="thumb"><svg viewBox="0 0 42 42" fill="none"><path d="M10 26c4 6 18 6 22 0" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M13 16l6 6-6 6M29 16l-6 6 6 6" stroke="currentColor" stroke-width="1.6" fill="none"/></svg></div>
+        <span class="tag">Rituel</span>
+        <h3>Construire un rituel du soir avec 15 minutes de crochet</h3>
+        <p>Une méthode douce pour transformer la fin de journée en moment de calme.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <h2>Contact</h2>
+      <p>Une question sur un patron, une envie de collaboration, ou juste envie de dire bonjour : écrivez-moi.</p>
+    </div>
+    <dl class="contact-details">
+      <dt>Email</dt>
+      <dd>riahi@lepointtranquille.fr</dd>
+      <dt>Instagram</dt>
+      <dd>@lepointtranquille</dd>
+    </dl>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div class="about-portrait" aria-hidden="true">
+      <svg viewBox="0 0 200 200">
+        <circle cx="100" cy="72" r="34" fill="#4E5C40" opacity="0.85"/>
+        <path d="M40 190c6-40 30-64 60-64s54 24 60 64" fill="#4E5C40" opacity="0.85"/>
+        <circle cx="70" cy="150" r="20" fill="#FDFBF6"/>
+        <circle cx="60" cy="146" r="8" fill="#332F28"/>
+        <circle cx="80" cy="146" r="8" fill="#332F28"/>
+      </svg>
+    </div>
+    <div class="about-text">
+      <h2>À propos : l'esprit du projet</h2>
+      <p>Je crois profondément que la créativité est le plus beau moyen de prendre soin de sa santé émotionnelle.</p>
+      <p>Le Point Tranquille a été imaginé comme un refuge chaleureux et pastel, où chaque laine et chaque point de crochet deviennent une parenthèse de bienveillance envers vous-même.</p>
+      <p class="about-signoff">Bienvenue dans la bulle.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="cta">
+  <div class="cta-grid">
+    <div>
+      <h2>Prête à accorder une pause à votre esprit ?</h2>
+      <p>Rejoignez la série d'articles guidés et réalisez votre tout premier compagnon de réconfort.</p>
+    </div>
+    <a href="article-nino-le-panda.html" class="btn">Lire l'article : l'aventure Nino</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-row">
+    <span>© 2026 Le Point Tranquille</span>
+    <span>Un espace de ralentissement, fait main.</span>
+  </div>
+</footer>
+
+</body>
+</html>
